@@ -8,27 +8,26 @@
 </head>
 
 <body>
-    <!-- Navigation bar -->
-      
-    <section id="header">
+ <!-- Navigation bar -->
+<section id="header">
+    <nav class="navbar">
+        <div class="logo">MyPortfolio</div>
 
-        <nav class="navbar">
-            <div class="logo">MyPortfolio</div>
-                <ul class="nav-links">
-                <li><a href="#one">Home</a></li>
-                <li><a href="#services">My Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                 <li><a href="#about">About</a></li>
-                 <li><a href="#contact">Contact</a></li>
-            </ul>
-             <div class="burger">
-               <div></div>
-                <div></div>
-                 <div></div>
-            </div>
-        </nav>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#one">Home</a></li>
+            <li><a href="#services">My Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-    </section>
+        <div class="burger" id="menu-toggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+</section>
 
              <!-- Home page -->
     <section id="one">
@@ -213,13 +212,21 @@
 </footer>
 
 <script>
-const burger = document.querySelector('.burger');
-const navLinks = document.querySelector('.nav-links');
+    const navLinks = document.getElementById("navLinks");
+    const toggleBtn = document.getElementById("menu-toggle");
 
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+    // close menu when a link is clicked
+    document.querySelectorAll("#navLinks a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
+    });
+
+    // toggle menu button
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
 </script>
-
 </body>
 </html>
+
